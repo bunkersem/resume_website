@@ -27,7 +27,8 @@ const dataservice = require('./scripts/services/dataservice')
 
 require('./scripts/core')
 
-pg.defaults.ssl = true
+if (process.env.DEBUG == false)
+    pg.defaults.ssl = true
 
 livereload(app, config={})
 

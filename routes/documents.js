@@ -90,7 +90,7 @@ router.post('/adddocument', auth, function(req, res, next){
             false, // Not public
             (new Date()).getUnixTime(),     // Created
             (new Date()).getUnixTime(),     // Last Updated
-            undefined)                      // Content gets set to '{}' by the database upon entry, update this value later.
+            {})                      // Contents text gets set to '{}' by the database upon entry, update this value later.
     ).then(result => {
         res.set("Connection", "close");
         res.sendStatus(201)

@@ -1,6 +1,7 @@
 "use strict"
 const pg = require('pg')
-pg.defaults.ssl = true
+if (process.env.DEBUG == false)
+    pg.defaults.ssl = true
 const conString = process.env.DATABASE_URL
 
 

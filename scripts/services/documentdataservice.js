@@ -1,6 +1,7 @@
 "use strict"
 const pg = require('pg')
-pg.defaults.ssl = true
+if (process.env.DEBUG == false)
+    pg.defaults.ssl = true
 const conString = process.env.DATABASE_URL
 require('../core')
 require('./transformeddocument')
@@ -149,8 +150,8 @@ function AddDocument(doc) {
             //Query:
             try {
                 client.query('INSERT INTO documents (owner_id, is_public, last_updated, created, title, content) '
-                    + "VALUES ($1::integer, $2::boolean, $3::integer, $4::integer, $5::varchar, '{}')"
-                    , [doc.ownerId, doc.isPublic, doc.lastUpdated, doc.created, doc.title], // Last value is the json content
+                    + "VALUES ($1::integer, $2::boolean, $3::integer, $4::integer, $5::varchar, $6::json)"
+                    , [doc.ownerId, doc.isPublic, doc.lastUpdated, doc.created, doc.title, doc.content], // Last value is the json content
                     // Which is hardcoded to be '{}' at creation
                     (err, result) => {
                         done()
