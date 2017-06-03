@@ -1,0 +1,8 @@
+{
+  "name": "Resume Website",
+  "description": "DB driven Resume Website",
+  "repository": "https://github.com/bunkersem/resume_website",
+  "logo": "echosierrastudio.png",
+  "keywords": ["node", "express", "heroku"],
+  "image": "echosierrastudio.png"
+}

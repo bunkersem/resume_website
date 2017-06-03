@@ -1,0 +1,136 @@
+$palette-primary: #5299D3;
+$palette-secondary: #BEB8EB;
+$palette-dark: #0B5563;
+$palette-light: #A2BCE0;
+$palette-coral: #5E5C6C;
+
+$palette-paragraph: #1a1a1a;
+$palette-paragraph-white: #ddd;
+
+$background: #eef;
+
+$mastheadHeight: 500px;
+
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: $background;
+    color: $palette-coral;
+    font-size: 1.2em;
+    min-height: 100vh;
+}
+
+a {
+    color: $palette-primary;
+}
+
+.fill {
+    min-height: 100%;
+}
+
+
+#main-nav {
+    background: $palette-primary;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    .dropdown-menu {
+        border-radius: 0;
+    }
+    
+}
+
+// #headercontent {
+//     margin: 0 auto 20px;
+// }
+
+
+header.masthead {
+    background: $palette-dark url('../images/header.jpg') no-repeat center bottom scroll;
+    background-size: cover;
+}
+
+header.masthead  {
+    color: $palette-paragraph-white;
+    h1, h2, h3, h4, h5, h6, p {
+        color: $palette-paragraph-white;
+    }
+}
+
+header.masthead > .container {
+    height: $mastheadHeight;
+}
+
+#header-intro-text  {
+    vertical-align: bottom;
+    margin-top: $mastheadHeight - 200px;
+    display: none;
+    text-shadow: 0px 0px 5px black;
+}
+
+header.masthead hr {
+    border-color: darken($palette-paragraph-white, 20) ;
+
+}
+
+header.masthead #header-img-container {
+    display: block;
+    text-align: center;
+
+    #header-img-center {
+        display: inline-block;
+        margin: 0 auto;
+        background: $background;
+        border-radius: 50%;
+        img {
+            position: relative;
+            top: -6px;
+            left: -1px;
+        }
+    }
+}
+
+#content-img-text, #content-img-text h4{
+    color: $palette-paragraph-white;
+}
+
+header.masthead .intro-text {
+    text-align: center;
+}
+
+section {margin-top: 140px;}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $palette-paragraph;
+}
+
+#main-content-page {
+    margin-top: -50px;
+}
+
+$showcaseheight: 800px;
+
+#about-showcase-container {
+    height: $showcaseheight;
+}
+
+#about-showcase {
+    width: 100%;
+    height: $showcaseheight;
+    background: $palette-dark url('/images/code.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+#margin-below {
+    margin-top: 300px;
+}   
+
+#copyright-footer {
+
+}               
+
+
+// contact map
+#map {
+    height: 400px;
+    width: 100%;
+}

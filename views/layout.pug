@@ -1,0 +1,25 @@
+doctype html
+html
+    - Date.prototype.getUnixTime = function() { return this.getTime()/1000|0 };
+    - function timestampToDate(unix_timestamp) { return new Date(unix_timestamp*1000) }
+    head
+        include ./partials/head
+        title= pageTitle
+        //Additional elements here:
+    body#page-top.index
+        include ./partials/nav
+        if data.isHomePage 
+            include ./partials/header
+        .container
+            if data.message
+                - var type='alert-'+data.messageType
+                div(style="position:relative; top:80px;")
+                    .alert(class=type,role="alert") !{data.message}
+            block content
+        #margin-below 
+        footer#copyright-footer.footer.m-3.text-right Copyright &copy; Sem Postma 2017     
+        include ./partials/modals
+        include ./partials/scripts
+                            
+        
+        script(src="https://cdn.quilljs.com/1.2.4/quill.js")

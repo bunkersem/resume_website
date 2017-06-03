@@ -1,0 +1,52 @@
+extends layout
+
+block content
+    section
+
+        .card
+            img.card-img.img-fluid(src="/images/content_img.jpg")
+            .card-block
+                h1.card-title Thanks for registring with us. We hope we can be of service
+                    
+                .card-body
+                    p
+                    |   In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna.
+        .container-fluid
+            .row
+                .col-lg-12.col-xl-6.push-xl-6.mt-5
+                    #map
+                .col-lg-12.col-xl-6.pull-xl-6.mt-5
+                    .card
+                        p.lead.card-header Business Adress
+                        .card-block
+                            .card-body
+                                h4.lead Permanent Address
+                                p.m-0 Thomas Nolan Kaszas II
+                                p.m-0 5322 Otter Lane
+                                p.m-0 Middleberge FL 32068
+                                br
+                                h4.lead Mailing Address
+                                p.m-0 Thomas Nolan Kaszas
+                                p.m-0 PSC 450 Box 297
+                                p.m-0 APO AP 96206
+                        .card-footer.text-muted.
+                            ps. These addresses dont actually exist.
+            
+    script.
+        function initMap() {
+            var location = {lat: 51.912339, lng: 4.546723};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    |     
+    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAA0IXlsXigSFqyHXCtDwChVE7RRAkR7qg&callback=initMap')
+
+
+
+

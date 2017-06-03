@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    - console.log('the data', data.user)
+    - if (!data.user) data.user = {}
+    section
+        .container
+            .row
+                h1.col-12 &nbsp;DashBoard
+                .col-md-12
+                    .card
+                        .card-header User Details
+                        ul.list-group.list-group-flush
+                            li.list-group-item.d-flex Username:&nbsp;#{data.user.username || ''}
+                                .text-right.ml-auto
+                                    button#change-username.btn.btn-info Change
+                            li.list-group-item.d-flex First Name:&nbsp;#{data.user.firstName || ''}
+                                .text-right.ml-auto
+                                    button#change-firstname.btn.btn-info Change
+                            li.list-group-item.d-flex Infix Name:&nbsp;#{data.user.infixName || ''}
+                                .text-right.ml-auto
+                                    button#change-infixname.btn.btn-info Change
+                            li.list-group-item.d-flex Last Name:&nbsp;#{data.user.lastName || ''}
+                                .text-right.ml-auto
+                                    button#change-lastname.btn.btn-info Change
+                            //li.list-gro-p.item.d-flex Last Online:&nbsp;#{ data.user.birth}
+                            li.list-group-item.d-flex Email Adress:&nbsp;#{data.user.email || ''}
+                                .text-right.ml-auto
+                                    button#change-email.btn.btn-info Change
+
+                            li.list-group-item.d-flex Active Since:&nbsp;#{data.user.created ? timestampToDate(data.user.created).toLocaleDateString() : ''}
+                            li.list-group-item.d-flex Last Online:&nbsp;#{data.user.lastOnline ? timestampToDate(data.user.lastOnline).toLocaleDateString() : ''}
+                            li.list-group-item.d-flex Birth Date:&nbsp;#{data.user.birth ? timestampToDate(data.user.birth).toLocaleDateString() : ''}
+                        
+            .row.mt-5
+                .col-12
+                    .card
+                        .card-header Profile
+                            
+                        ul.list-group.list-group-flush
+                            li.list-group-item.form-group.d-flex
+                                - var url = "/users/icon/" + data.user.username
+                                img.card-img-top(src=url)
+                                button#newicon.btn.btn-info.ml-auto.mt-auto(data-toggle="modal" data-target="#modal-saveicon") Change
+                            li.list-group-item
+                                .container.d-flex
+                                    .mr-auto Other Documents
+                                    .text-right
+                                        button.btn.btn-info(data-toggle="modal", data-target="#modal-newfile") New
+                                .container.mt-3.mb-4
+                                    .row
+                                        .col-12
+                                            .card
+                                                ul#document-list.list-group.list-group-flush
+
+            .row.mt-5
+                            
+                            
+                             
+                            
+        

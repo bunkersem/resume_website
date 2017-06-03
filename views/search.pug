@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    section
+
+        .card
+            .card-block
+                .card-title
+                    .form-group
+                        label(for="search-input") Search For Documens And Users
+                        input.form-control#search-input(type="text" aria-describedby="search-string-helper")
+                        small#search-string-helper.from-text.text-muted This Function is still in production (bugs might occur).
+                        button#search-button.btn.btn-primary.btn-lg(onclick="searchRequest(event)") Search
+                ul#search-results.list-group.list-group-flush

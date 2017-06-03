@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    section
+        form(method="post", encType="multipart/form-data")
+            .form-group
+                label(for="email") Email:&nbsp;
+                input(type="email", name="email", id="email" placeholder="example@hostingservice.com", required)
+                small.form-text.form-text-muted We will not share your email adress with anyone.
+            .form-group
+                label(for="username") Username:&nbsp;
+                input(type="text", name="username", id="username" placeholder="username", required)
+                small.form-text.form-text-muted This is public.
+            .form-group
+                label(for="password") Password:&nbsp;
+                input(type="password", name="password", id="password" placeholder="password", required)
+                small.form-text.form-text-muted We will not share your email adress with anyone.
+            .form-group
+                label(for="firstname") First Name:&nbsp;
+                input(type="text", name="firstName", id="firstname", required)
+
+                label(for="infixname") Infix Name:&nbsp;
+                input(type="text", name="infixName", id="infixname")
+
+                label(for="lastname") Last Name:&nbsp;
+                input(type="text", name="lastName", id="lastname", required)
+                small#emailHelp.form-text.form-text-muted This is Public
+            .form-group
+                label(for="birthdate") First Name:&nbsp;
+                input(type="date", name="birth", id="birthdate", required, min="1880-01-01", max="2017-01-01") 
+            .form-group
+                label(for="inputfile") Profile Picture:&nbsp;
+                input.form-control-file(type="file", name="icon", accept=".bmp,.png,.jpg,image/*" aria-describedby="fileHelp")
+                small#fileHelmp.text-muted.form-text(Optional) Profile Picture Icon.</small>
+            button.btn.btn-primary(type="submit") Submit

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    section
+        form(method="post", encType="multipart/form-data")
+            .form-group
+                label(for="username") Username:&nbsp;
+                input(type="text", name="username", id="username" placeholder="username", required)
+            .form-group
+                label(for="password") Password:&nbsp;
+                input(type="password", name="password", id="password" placeholder="password", required)
+            button.btn.btn-primary(type="submit") Submit
+            
+            if message
+                - var type='alert-'+messageType
+                .alert(class=type,role="alert") !{message}

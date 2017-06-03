@@ -1,0 +1,75 @@
+// New File
+#modal-newfile.modal.fade(tabindex='-1', role='dialog', aria-labelledby='New File Dialog', aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5.modal-title Create A New File?
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;   
+            .modal-body
+                label(for="newfile-title") File Name:&nbsp;
+                input(id="newfile-title", type="text", placeholder="My New File")
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close       
+                button#newdocument.btn.btn-primary(type='button' onclick="newDocumentHandler(event)" data-dismiss='modal') Create
+
+// Save Changes
+#modal-saveordiscard.modal.fade(tabindex='-1', role='dialog', aria-labelledby='New Save File Dialog', aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5.modal-title Save the File before exit? 
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;   
+            .modal-body
+                | ... 
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Discard     
+                button.btn.btn-primary(type='button', onclick="saveDocument(event)") Save changes
+
+
+// New Icon
+#modal-saveicon.modal.fade(tabindex='-1', role='dialog', aria-labelledby='New Icon Dialog', aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            form(action="/users/icon/updateicon" method="post", encType="multipart/form-data" )
+                .modal-header
+                    h5.modal-title Upload a new Icon.
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;   
+                .modal-body
+                    label(for="newicon-title") File:&nbsp;
+                    input#newicon-title.form-control-file(type="file", name="icon", accept=".bmp,.png,.jpg,image/*" aria-describedby="fileHelp")
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close       
+                    input(type="submit", value="Upload")
+
+
+// Editor
+#modal-editor.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Editor Dialog', aria-hidden='true' data-backdrop="static", data-keyboard="false" )
+    .modal-dialog.modal-lg(role='document')
+        .modal-content
+            
+            .modal-body
+                h2
+                    input#document-title(type="text" class="form-control", placeholder="Title")
+                #editor-parent
+                    #editor-container
+                    .d-flex.mt-2
+                        button.btn.btn-secondary(type='button', data-toggle="collapse" data-target="#discard-btn") Close
+                        button#discard-btn.btn.btn-danger.collapse.ml-2(type='button', data-toggle="collapse" data-target="#discard-btn" data-dismiss='modal') Discard
+                        .form-check.ml-auto
+                            label.form-check-label
+                                input.form-check-input(type="checkbox", id="document-ispublic") 
+                                |   Is Public?&nbsp;
+                        button.btn.btn-primary(type='button' onclick="saveDocument(event)") Save
+
+// Alert
+#modal-alert.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Alert Dialog', aria-hidden='true')
+    .modal-dialog.modal-lg(role='document')
+        .modal-content
+            .modal-header
+                .modal-title
+            .modal-body
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close 
