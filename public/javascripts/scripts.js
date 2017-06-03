@@ -200,7 +200,7 @@ $(function () {
 function saveDocument(e) {
     var oldDoc = window.data.activeDocument;
 
-    var contents = window.quill.getText();
+    var contents = { "text": window.quill.getText() };
 
     console.log('contents:', contents);
     var title = $('#document-title').val();
@@ -230,7 +230,7 @@ function saveDocument(e) {
 function initializeEditor() {
 
     var $modalEditor = $('#modal-editor');
-    window.quill.setText(window.data.activeDocument.content);
+    window.quill.setText(window.data.activeDocument.content.text);
     $('#document-title').val(window.data.activeDocument.title);
     $('#document-ispublic').prop("checked", window.data.activeDocument.isPublic);
     $modalEditor.modal('show');

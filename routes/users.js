@@ -68,6 +68,11 @@ router.get('/register', function(req, res, next){
 })
 
 router.post('/register', function(req, res, next) {
+    function registerError(err){
+        errorHandler(err);
+        res.sendStatus(500)
+    }
+
     var {username, email, birth, firstName, infixName, lastName, password, icon} = req.body
     var newUser = new User(username, birth, email, firstName, infixName, lastName, password)
 
@@ -101,7 +106,7 @@ router.post('/register', function(req, res, next) {
             })
         })
     })
-    .catch((err) => {errorHandler(err); next()})
+    .catch((err) => {registerError(err);})
 
 })
 
