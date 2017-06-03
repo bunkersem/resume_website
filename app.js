@@ -29,17 +29,10 @@ require('./scripts/core')
 
 pg.defaults.ssl = true
 
-console.log(require('./credentials'));
-
-global.connectionString = process.env.DATABASE_URL;
-console.log("DB URL: " + process.env.DATABASE_URL)
-
 livereload(app, config={})
 
 app.use(cookieParser(credentials.cookie_secret))
 app.use(fileUpload())
-
-
 
 app.use(session({
     store: new pgSession({

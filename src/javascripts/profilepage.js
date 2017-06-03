@@ -1,6 +1,6 @@
 $(function(){
 
-    //Register Hanlders
+    //Register Handlers
 
     //$('#editcv').attr('onclick', 'editCvHandler(event)')
     //$('#newdocument').attr('onclick', 'newDocumentHandler(event)')

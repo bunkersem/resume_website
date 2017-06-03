@@ -53,4 +53,3 @@ function search(searchString) {
 function errorHandler(err) {
     console.error('an internal error occured', err, err.trace)
 }
-
